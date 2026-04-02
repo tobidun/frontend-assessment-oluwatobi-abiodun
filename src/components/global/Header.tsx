@@ -13,8 +13,7 @@ import {
   Menu, 
   X,
   LayoutGrid, 
-  List,
-  Command
+  List
 } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 

@@ -71,7 +71,7 @@ export const fetchUsers = async ({
   pageParam = 0,
   limit = 20,
 }: FetchParams): Promise<UserListResponse> => {
-  let url = query
+  const url = query
     ? `${BASE_URL}/users/search?q=${encodeURIComponent(query)}&limit=${limit}&skip=${pageParam}`
     : `${BASE_URL}/users?limit=${limit}&skip=${pageParam}`;
 

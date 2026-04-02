@@ -29,7 +29,7 @@ export default function NotFound() {
             Page Not Found
           </h1>
           <p className="text-slate-500 font-medium text-sm leading-relaxed">
-            This node doesn't exist or has been relocated.
+            This page doesn&apos;t exist or has been relocated.
           </p>
         </div>
 

@@ -2,25 +2,54 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #ffffff;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-quicksand), ui-sans-serif, system-ui;
+  --font-mono: ui-monospace, SFMono-Regular;
+
+  --color-primary-50: #e8eef9;
+  --color-primary-100: #c5d5f1;
+  --color-primary-200: #9cb6e7;
+  --color-primary-300: #6f93d9;
+  --color-primary-400: #4d78cf;
+  --color-primary-500: #2b5ec5;
+  --color-primary-600: #053a84;
+  --color-primary-700: #042e6a;
+  --color-primary-800: #032254;
+  --color-primary-900: #02173d;
+  --color-primary-950: #010c26;
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-bounce-slow: bounce 3s infinite;
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+}
+
+body {
+  font-family: var(--font-quicksand), sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ffffff;
+    --foreground: #ffffff;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }

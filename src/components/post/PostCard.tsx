@@ -35,7 +35,7 @@ export const PostCard = ({ item, priority = false }: PostCardProps) => {
 
         <div className="flex-1 min-w-0 pr-10">
           <div className="flex flex-col gap-0.5 mb-1">
-            <span className="text-[11px] font-semibold text-amber-600">
+            <span className="text-[11px] font-semibold text-primary-600">
               Author ID: {item.userId || 'Unknown'} • Report
             </span>
             <h3 className="text-base font-bold text-slate-900 truncate tracking-tight">
@@ -47,7 +47,7 @@ export const PostCard = ({ item, priority = false }: PostCardProps) => {
           </p>
         </div>
 
-        <div className="absolute right-6 top-1/2 -translate-y-1/2 text-slate-300 group-hover:text-amber-600 transition-colors">
+        <div className="absolute right-6 top-1/2 -translate-y-1/2 text-slate-300 group-hover:text-primary-600 transition-colors">
           <ArrowUpRight className="h-4 w-4" />
         </div>
       </Link>
@@ -72,16 +72,16 @@ export const PostCard = ({ item, priority = false }: PostCardProps) => {
 
       <div className="flex flex-col p-5 flex-grow space-y-2">
         <div className="flex items-center gap-2">
-          <span className="text-xs font-semibold text-amber-600">
+          <span className="text-xs font-semibold text-primary-600">
             {item.reactions && typeof item.reactions === 'object' ? `${item.reactions.likes || 0} Likes` : 'Active'}
           </span>
         </div>
 
         <div className="flex items-start justify-between gap-4">
-          <h3 className="text-lg font-bold text-slate-900 leading-tight tracking-tight group-hover:text-amber-600 transition-colors">
+          <h3 className="text-lg font-bold text-slate-900 leading-tight tracking-tight group-hover:text-primary-600 transition-colors">
             {item.title}
           </h3>
-          <ArrowUpRight className="h-4 w-4 text-slate-300 group-hover:text-amber-600 transition-all transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          <ArrowUpRight className="h-4 w-4 text-slate-300 group-hover:text-primary-600 transition-all transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </div>
 
         <p className="text-slate-500 font-medium leading-relaxed line-clamp-2 text-xs">
@@ -92,7 +92,7 @@ export const PostCard = ({ item, priority = false }: PostCardProps) => {
           {item.tags?.slice(0, 3).map((tag, idx) => (
             <span 
               key={idx}
-              className="px-2 py-0.5 rounded-full bg-slate-50 border border-slate-200 text-[10px] font-semibold text-slate-600 transition-all hover:bg-amber-50 hover:border-amber-200 hover:text-amber-600"
+              className="px-2 py-0.5 rounded-full bg-slate-50 border border-slate-200 text-[10px] font-semibold text-slate-600 transition-all hover:bg-primary-50 hover:border-primary-200 hover:text-primary-600"
             >
               {tag}
             </span>

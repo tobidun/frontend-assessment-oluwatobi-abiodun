@@ -17,7 +17,7 @@ export default function PostsPage() {
   }, [setCurrentResource])
 
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       <div className="max-w-[1600px] mx-auto px-8 lg:px-16 py-12">
         <header className="mb-12 flex flex-col items-center text-center space-y-4 animate-in fade-in slide-in-from-bottom-2 duration-500">
           <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl text-slate-900">
@@ -36,6 +36,6 @@ export default function PostsPage() {
           <PostList />
         </section>
       </div>
-    </main>
+    </div>
   )
 }

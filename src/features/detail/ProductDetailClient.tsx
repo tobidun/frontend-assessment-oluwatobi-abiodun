@@ -8,7 +8,6 @@ import { DummyProduct } from '@/types'
 import { 
   ArrowLeft, 
   History,
-  Info,
   Download,
   Clock,
   CheckCircle2,
@@ -16,6 +15,7 @@ import {
 } from 'lucide-react'
 import { exportToCSV } from '@/lib/export'
 import { Button } from '@/components/ui/Button'
+import { DetailSkeleton } from '@/components/ui/skeletons'
 
 interface ProductDetailClientProps {
   id: string
@@ -38,13 +38,13 @@ export default function ProductDetailClient({ id }: ProductDetailClientProps) {
       `product_entity_${item.id}.csv`,
       ['Title', 'Brand', 'Category', 'Price', 'Rating', 'Stock', 'Description'],
       [
-        item.title,
-        item.brand,
-        item.category,
-        item.price,
-        item.rating,
-        item.stock,
-        item.description.replace(/\n/g, ' ')
+        item.title || 'N/A',
+        item.brand || 'N/A',
+        item.category || 'N/A',
+        item.price ?? 0,
+        item.rating ?? 0,
+        item.stock ?? 0,
+        (item.description || '').replace(/\n/g, ' ')
       ]
     );
   };
@@ -55,11 +55,7 @@ export default function ProductDetailClient({ id }: ProductDetailClientProps) {
     { id: 3, action: 'Security Protocol Checked', date: 'Yesterday', icon: ShieldCheck, color: 'text-primary-600' },
   ];
 
-  if (loading) return (
-    <div className="min-h-screen bg-white flex items-center justify-center">
-      <div className="h-12 w-12 border-4 border-slate-100 border-t-primary-600 rounded-full animate-spin" />
-    </div>
-  )
+  if (loading) return <DetailSkeleton />
 
   if (!item) return (
     <div className="min-h-screen flex items-center justify-center">

@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { exportToCSV } from "@/lib/export";
 import { Button } from "@/components/ui/Button";
+import { DetailSkeleton } from "@/components/ui/skeletons";
 
 interface UserDetailClientProps {
   id: string;
@@ -36,10 +37,10 @@ export default function UserDetailClient({ id }: UserDetailClientProps) {
       `agent_profile_${item.id}.csv`,
       ["First Name", "Last Name", "Email", "Phone", "Company", "Title"],
       [
-        item.firstName,
-        item.lastName,
-        item.email,
-        item.phone,
+        item.firstName || 'N/A',
+        item.lastName || 'N/A',
+        item.email || 'N/A',
+        item.phone || 'N/A',
         item.company?.name || "N/A",
         item.company?.title || "N/A",
       ],
@@ -70,12 +71,7 @@ export default function UserDetailClient({ id }: UserDetailClientProps) {
     },
   ];
 
-  if (loading)
-    return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
-        <div className="h-12 w-12 border-4 border-slate-100 border-t-primary-600 rounded-full animate-spin" />
-      </div>
-    );
+  if (loading) return <DetailSkeleton />;
 
   if (!item)
     return (

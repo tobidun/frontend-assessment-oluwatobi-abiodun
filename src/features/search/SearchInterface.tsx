@@ -18,12 +18,15 @@ export const SearchInterface = () => {
   // Sync internal input with store changes (e.g. from URL sync)
   useEffect(() => {
     if (searchQuery !== inputValue && !debouncedSearch) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setInputValue(searchQuery)
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchQuery])
 
   // Reset local input only when resource truly switches
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setInputValue('')
   }, [currentResource])
 

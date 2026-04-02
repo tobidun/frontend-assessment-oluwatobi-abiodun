@@ -1,21 +1,21 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Quicksand } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const quicksand = Quicksand({
+  variable: "--font-quicksand",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
   title: "CheckIt | Protocol Registry Explorer",
   description: "High-fidelity explorer for Products, Posts, and Users data protocols.",
 };
+
+import { QueryProvider } from "@/providers/QueryProvider";
+import { SyncUrl } from "@/components/global/SyncUrl";
+import { Suspense } from "react";
 
 export default function RootLayout({
   children,
@@ -25,9 +25,16 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${quicksand.variable} ${quicksand.className} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <QueryProvider>
+          <Suspense fallback={null}>
+            <SyncUrl />
+          </Suspense>
+          {children}
+        </QueryProvider>
+      </body>
     </html>
   );
 }
