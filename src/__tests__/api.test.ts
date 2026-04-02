@@ -18,7 +18,7 @@ describe('Registry API Protocol', () => {
     
     // In search mode, DummyJSON uses the /search sub-endpoint
     expect(global.fetch).toHaveBeenCalledWith(
-      expect.stringContaining('/products/search?q=intelligence&limit=12&skip=12'),
+      expect.stringContaining('/products/search?q=intelligence&limit=20&skip=12'),
       expect.anything()
     )
   })
