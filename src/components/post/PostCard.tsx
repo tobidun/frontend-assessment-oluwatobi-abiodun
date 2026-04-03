@@ -22,6 +22,7 @@ export const PostCard = ({ item, priority = false }: PostCardProps) => {
       <Link
         href={`/posts/${item.id}`}
         className="group relative flex items-center gap-6 p-4 rounded-lg cursor-pointer backdrop-blur-md bg-white/70 border border-white/20 transition-all duration-300 hover:border-primary-600 hover:shadow-xl hover:shadow-primary-600/5 shadow-sm"
+        aria-label={`View full report: ${item.title}`}
       >
         <div className="relative h-16 w-16 flex-shrink-0 rounded bg-slate-50 border border-slate-100 overflow-hidden">
           <Image
@@ -48,7 +49,7 @@ export const PostCard = ({ item, priority = false }: PostCardProps) => {
         </div>
 
         <div className="absolute right-6 top-1/2 -translate-y-1/2 text-slate-300 group-hover:text-primary-600 transition-colors">
-          <ArrowUpRight className="h-4 w-4" />
+          <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
         </div>
       </Link>
     )
@@ -58,6 +59,7 @@ export const PostCard = ({ item, priority = false }: PostCardProps) => {
     <Link
       href={`/posts/${item.id}`}
       className="group flex flex-col backdrop-blur-md bg-white/70 rounded-lg border border-white/20 transition-all duration-400 hover:border-primary-600 hover:shadow-xl hover:shadow-primary-600/5 overflow-hidden h-full shadow-sm"
+      aria-label={`View full report: ${item.title}`}
     >
       <div className="relative aspect-[16/10] overflow-hidden bg-slate-50 border-b border-slate-100">
         <Image
@@ -81,7 +83,7 @@ export const PostCard = ({ item, priority = false }: PostCardProps) => {
           <h3 className="text-lg font-bold text-slate-900 leading-tight tracking-tight group-hover:text-primary-600 transition-colors">
             {item.title}
           </h3>
-          <ArrowUpRight className="h-4 w-4 text-slate-300 group-hover:text-primary-600 transition-all transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          <ArrowUpRight className="h-4 w-4 text-slate-300 group-hover:text-primary-600 transition-all transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
         </div>
 
         <p className="text-slate-500 font-medium leading-relaxed line-clamp-2 text-xs">

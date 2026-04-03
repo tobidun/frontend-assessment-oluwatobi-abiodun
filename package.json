@@ -9,7 +9,11 @@
     "lint": "eslint",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "build:worker": "opennextjs-cloudflare build",
+    "dev:worker": "wrangler dev",
+    "preview:worker": "npm run build:worker && opennextjs-cloudflare preview",
+    "deploy:worker": "npm run build:worker && opennextjs-cloudflare deploy"
   },
   "dependencies": {
     "@tanstack/react-query": "5.96.1",
@@ -21,6 +25,7 @@
     "zustand": "5.0.12"
   },
   "devDependencies": {
+    "@opennextjs/cloudflare": "^1.18.0",
     "@tailwindcss/postcss": "^4",
     "@testing-library/jest-dom": "6.9.1",
     "@testing-library/react": "16.3.2",
@@ -34,6 +39,7 @@
     "jest": "30.3.0",
     "jest-environment-jsdom": "30.3.0",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wrangler": "^4.80.0"
   }
 }

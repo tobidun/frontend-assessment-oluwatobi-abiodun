@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react'
 import { useRouter, usePathname } from 'next/navigation'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useExplorerStore, ResourceType } from '@/store/useExplorerStore'
 import dynamic from 'next/dynamic'
 const SearchInterface = dynamic(() => import('@/features/search/SearchInterface').then(mod => mod.SearchInterface), {
@@ -56,9 +57,10 @@ export const Header = () => {
           
           {/* Left: Brand/Logo */}
           <div className="flex justify-start">
-            <div 
-              onClick={() => router.push('/')}
+            <Link 
+              href="/"
               className="relative h-10 w-28 group cursor-pointer"
+              aria-label="CheckIt Protocol Home"
             >
               <Image 
                 src="/checkit-logo.png" 
@@ -68,7 +70,7 @@ export const Header = () => {
                 className="object-contain transition-transform duration-300 group-hover:scale-105"
                 priority
               />
-            </div>
+            </Link>
           </div>
 
           {/* Middle: Navigation - Absolutely centered */}

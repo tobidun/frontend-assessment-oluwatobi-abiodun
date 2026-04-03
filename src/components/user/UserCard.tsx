@@ -20,6 +20,7 @@ export const UserCard = ({ item, priority = false }: UserCardProps) => {
       <Link
         href={`/users/${item.id}`}
         className="group relative flex items-center gap-6 p-4 rounded-lg backdrop-blur-md bg-white/70 border border-white/20 transition-all duration-300 hover:border-primary-600 hover:shadow-xl hover:shadow-primary-600/5 shadow-sm"
+        aria-label={`View full agent profile: ${item.firstName} ${item.lastName}`}
       >
         <div className="relative h-16 w-16 flex-shrink-0 rounded-full bg-slate-50 border border-slate-100 overflow-hidden">
             <Image
@@ -46,7 +47,7 @@ export const UserCard = ({ item, priority = false }: UserCardProps) => {
         </div>
 
         <div className="absolute right-6 top-1/2 -translate-y-1/2 text-slate-300 group-hover:text-primary-600 transition-colors">
-          <ArrowUpRight className="h-4 w-4" />
+          <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
         </div>
       </Link>
     )
@@ -56,6 +57,7 @@ export const UserCard = ({ item, priority = false }: UserCardProps) => {
     <Link
       href={`/users/${item.id}`}
       className="group flex flex-col backdrop-blur-md bg-white/70 rounded-lg border border-white/20 transition-all duration-400 hover:border-primary-600 hover:shadow-xl hover:shadow-primary-600/5 overflow-hidden h-full shadow-sm"
+      aria-label={`View full agent profile: ${item.firstName} ${item.lastName}`}
     >
       <div className="p-6 flex flex-col items-center flex-grow bg-white border-b border-slate-100 relative">
          <div className="relative h-24 w-24 rounded-full overflow-hidden border-4 border-white shadow-xl shadow-slate-200 mb-4 bg-slate-100">
@@ -78,9 +80,9 @@ export const UserCard = ({ item, priority = false }: UserCardProps) => {
           </p>
          </div>
 
-         <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-            <ArrowUpRight className="h-4 w-4 text-primary-600 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-         </div>
+          <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+            <ArrowUpRight className="h-4 w-4 text-primary-600 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" aria-hidden="true" />
+          </div>
       </div>
 
       <div className="flex flex-col p-5 bg-slate-50 space-y-3">

@@ -1,0 +1,11 @@
+name = "content-explorer-registry"
+main = ".open-next/worker.js"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+NEXT_PUBLIC_API_BASE = "https://dummyjson.com"
+
+[assets]
+directory = ".open-next/assets"
+binding = "ASSETS"
